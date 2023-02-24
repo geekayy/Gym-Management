@@ -8,10 +8,10 @@ Author URL: http://webthemez.com
 **************************/
 body {
   padding-top: 100px;
-  background: #fff;
+  background: #282828;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  color: #282828;
+  color: #fff;
   line-height: 26px;
   padding: 0;
 }
@@ -58,7 +58,7 @@ text-align:center;
 }
 .section-header .section-title {
   font-size: 44px;
-  color: #F9690E;
+  color: #39ff14;
   position: relative;
   padding-bottom: 20px;
   margin: 0 0 20px;  
@@ -74,7 +74,7 @@ text-align:center;
   bottom: -5px;
   right: 0;
   width: 30px;
-  background: rgb(249, 105, 14);
+  background: rgb(57, 255, 20);
   border-radius: 50%;
   margin: 0 auto;
   left: 0;
@@ -87,11 +87,11 @@ text-align:center;
   border-radius: 0;
 }
 .btn.btn-primary {
-  background: #CD4F00;
+  background: #282828;
 }
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-  background: #FF8A41;
+  background: #00ff00;
 }
 .listarrow{
 padding:0px;
@@ -103,7 +103,7 @@ padding:0px;
 }
 .listarrow li i{
 padding-right:15px;
-color: #F9690E;
+color: #00ff00;
 }
 .column-title {
   margin-top: 0;
@@ -169,11 +169,11 @@ text-transform: uppercase;
 *******Header******
 **************************/
 #main-nav.navbar-default {
-background: #FFFFFF;
+background: #282828;
 }
 #main-nav.navbar-default .navbar-nav > li.active > a, #main-nav.navbar-default .navbar-nav > li.open > a, #main-nav.navbar-default .navbar-nav > li:hover > a {
-background: rgb(249, 105, 14);
-color: #FFFFFF;
+background: rgb(57, 255, 20);
+color: #282828;
 }
 .navbar.navbar-default {
   border: 0;
@@ -188,7 +188,7 @@ color: #FFFFFF;
   padding: 10px 15px 1px;
 }
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
-color: #F8680D;
+color: #39ff14;
  
 background: transparent;
 }
@@ -196,7 +196,7 @@ background: transparent;
 color: #020202;
 } 
 #main-nav.navbar-default {
-background: #FFF;
+background: #282828;
 }
 .navbar-nav>li {
 }
@@ -214,7 +214,7 @@ background: #FFF;
     border-bottom: 4px solid transparent;
 }
   .navbar-default .navbar-nav>li>a {
-	color: #0E0E0E;
+	color: #fff;
 	}
   #main-nav.navbar-default .navbar-nav > li.active > a,
 
@@ -222,7 +222,7 @@ background: #FFF;
   #main-nav.navbar-default .navbar-nav > li:hover > a {
     background: transparent; 
 	
-    color: #F9690E;
+    color: #39ff14;
   
 }
   #main-nav.navbar-default .dropdown-menu {
@@ -265,7 +265,7 @@ background: #FFF;
 #hero-banner{
   overflow: hidden;
   height: 700px;
-  background: url('../images/banner/banner.jpg');
+  background: url('../images/banner/banner1.jpg');
   background-size:cover;
   color:#fff;
 }
@@ -291,7 +291,7 @@ background: #FFF;
   text-align: right;  
 }
 #hero-banner h2 b{
-color:#F9690E;
+color:#39ff14;
 }
 #hero-banner p { 
   font-size: 22px; 
@@ -362,6 +362,10 @@ color: #FFF;
 #services, #features {
   padding: 100px 0 75px;
 }
+.media-body  {
+  color: black;
+}
+
 .media.service-box {
   margin: 25px 0 36px;
   padding: 20px;
@@ -369,7 +373,7 @@ color: #FFF;
   position: relative;
   background: #FFFFFF;
   border-radius: 0 0 20px 0;
-  border: #F9690B 2px solid;
+  border: #39ff14 2px solid;
 }
 .media.service-box .pull-left {
   margin-right: 20px;
@@ -391,7 +395,7 @@ color: #FFF;
   left: -13px;
   top: -15px;
   vertical-align: middle;
-  background: rgb(249, 105, 14);
+  background: rgb(57, 255, 20);
   border-radius: 10% 20%;
   height: 80px;
   border: 6px #fff solid;
@@ -845,7 +849,7 @@ color: #FFFFFF;
 }
 /*Contact*/
  .contact-info{
- background: #F9690E;
+ background: #39ff14;
  padding: 50px;
  margin-bottom: 50px;
 }
