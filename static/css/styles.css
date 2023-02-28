@@ -1,11 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700,500);
-/*
-Author: webthemez.com
-Author URL: http://webthemez.com
-*/
-/*************************
-*******Typography******
-**************************/
+
 body {
   padding-top: 100px;
   background: #282828;
@@ -128,10 +122,7 @@ ul.nostyle {
 ul.nostyle i {
   color: #45aed6;
 }
-.scaleIn {
-  -webkit-animation-name: scaleIn;
-  animation-name: scaleIn;
-}
+
 .navbar-toggle{
 border-radius: 0;
 }
@@ -139,32 +130,7 @@ border-radius: 0;
 .navbar-nav>li>a {
 text-transform: uppercase;
 }
-@-webkit-keyframes scaleIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@keyframes scaleIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    -ms-transform: scale(0);
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-}
+
 /*************************
 *******Header******
 **************************/
