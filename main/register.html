@@ -48,11 +48,11 @@
         </nav><!--/nav-->
     </header><!--/header-->
 
-    <form id="login" name="login-form"action="">
+    <form id="register" name="register-form"action="">
         <!-- Headings for the form -->
         <div class="headingsContainer">
-            <h3>Sign in</h3>
-            <p>Sign in with your username and password</p>
+            <h3>Sign Up</h3>
+            <p>Sign up with the following details</p>
         </div>
 
         <!-- Main container for all inputs -->
@@ -67,20 +67,29 @@
             <label for="password">Your password</label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
+            <!-- First name  -->
+
+            <label for="first_name">First Name</label>
+            <input type="text" placeholder="Enter first name" name="first_name" id="first_name" required>
+
+            <!-- last name  -->        
+            <label for="last name">Last Name</label>
+            <input type="text" placeholder="Enter last name" name="last_name" id="last_name" required>
+
+
+            <!-- phone  -->
+
+            <label for="phone">Phone</label>
+            <input type="phone" placeholder="Enter your Phone no." name="phone" id="phone_no" required>
+
             <!-- sub container for the checkbox and forgot password link -->
-            <div class="subcontainer">
-                <label>
-                  <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-                <p class="forgotpsd"> <a href="#">Forgot Password?</a></p>
-            </div>
+            
 
 
             <!-- Submit button -->
-            <button type="submit">Login</button>
+            <button type="submit">Sign Up</button>
 
-            <!-- Sign up link -->
-            <p class="register">Not a member?  <a href="register.html">Register here!</a></p>
+        
 
         </div>
 
@@ -118,21 +127,27 @@
     <script src="../static/js/wow.min.js"></script>
     <script src="../static/js/custom-scripts.js"></script>
     <script>
-        const signinForm = document.getElementById('login');
+        const signupForm = document.getElementById('register');
 
-        signinForm.addEventListener('submit', event => {
+        signupForm.addEventListener('submit', event => {
             event.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const phone = document.getElementById('phone_no').value;
+            const first_name = document.getElementById('first_name').value;
+            const last_name = document.getElementById('last_name').value;
             url = "http://localhost:8000"
-            fetch(url+'/signin', {
+            fetch(url+'/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     email,
-                    password
+                    password,
+                    first_name,
+                    last_name,
+                    phone
                 })
             })
             .then((response) => {
@@ -141,7 +156,7 @@
                 }
                 return response.json();
             })
-            .then(data => console.log(data))
+            .then(data => alert(data))
             .catch(error => {
                 alert(error)
             });
