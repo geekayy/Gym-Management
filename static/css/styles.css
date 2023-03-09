@@ -153,6 +153,10 @@ color: #282828;
   height: auto;
   padding: 10px 15px 1px;
 }
+.navbar-brand>img{
+  width: 60px;
+}
+
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
 color: #39ff14;
  
@@ -400,7 +404,7 @@ padding-top: 10px;
 }
 #portfolio .portfolio-filter > li a:hover,
 #portfolio .portfolio-filter > li a.active {
-  background: #F9690E;
+  background: #39ff14;
   color: #FFFFFF; 
 } 
 #portfolio .portfolio-items {
@@ -418,7 +422,7 @@ padding-top: 10px;
 }
 #portfolio .portfolio-item .portfolio-item-inner {
   position: relative;
-  border-bottom: 4px solid #F9690E;
+  border-bottom: 4px solid #39ff14;
 }
 #portfolio .portfolio-item .portfolio-item-inner .portfolio-info {
   opacity: 0;
@@ -445,7 +449,7 @@ padding-top: 10px;
   height: 60px;
   line-height: 36px;
   text-align: center;
-  color: #F9690E;
+  color: #39ff14;
   display:block;
   text-align: center;
 
@@ -532,9 +536,7 @@ margin-bottom: 15px;
   background: url('../images/img3.jpg');
   background-size: cover;
 }
-#testimonial h2{
-color:#fff;
-}
+
 #testimonial h4 {
   color: #fff;
   margin-bottom: 8px;
@@ -581,10 +583,10 @@ color:#fff;
   background: #222222;
   color: #BBBBBB;
   padding: 7px 0;
-  border-top: 2px solid #fff;
+  border-top: 2px solid #222222;
 } 
 #our-team .team-member:hover .social-icons > li > a {
-  color: #F9690E;
+  color: #39ff14;
 }
  
 #our-team .social-icons {
@@ -593,7 +595,7 @@ color:#fff;
   margin: 0;  
   -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
     transition: height 1s;
-  background: #F4F4F4;
+  background: #222222;
   padding: 6px 0 6px;
 }
 #our-team .social-icons > li {
@@ -652,7 +654,7 @@ line-height: 22px;
 .single-testimonial h5{
 	padding: 8px 0 0px;
 	font-size: 16px;
-	color: #F9690E;
+	color: #39ff14;
 }
  
 .progress {
@@ -710,14 +712,13 @@ margin: 0;
 }
 #business-stats {
   padding: 100px 0 70px;
-  background: #FFFFFF;
+  background: #222222;
   background-size: cover;
-  color: #000;
+  color: #fff;
   /* background: url('../images/img2.jpg'); */
   background-size: contain;
 }
 #business-stats h1,
-#business-stats h2,
 #business-stats h3,
 #business-stats h4 {
   color: #151313;
@@ -732,7 +733,7 @@ margin: 0;
   height: 140px;
   font-size: 24px;
   line-height: 140px;
-  border: 4px solid #F9690E;
+  border: 4px solid #39ff14;
   border-radius: 100px;
   margin-bottom: 20px;
 }
@@ -802,7 +803,7 @@ li.plan-purchase .btn {
 color: #FFFFFF;
 }
 #pricing ul.pricing.featured li.plan-header {
-  background: #F9690E;
+  background: #39ff14;
 }
 #pricing ul.pricing.featured li.plan-header .plan-name {
   color: #FFFFFF;
@@ -854,7 +855,7 @@ width: 100px;
   color: #fff;
 }
 #footer a:hover {
-  color: #F9690E;
+  color: #39ff14;
 }
 #footer ul {
   list-style: none;
