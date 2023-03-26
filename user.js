@@ -15,6 +15,13 @@ User.create = async function(user) {
   return result.insertId;
 };
 
+User.create_contact_details = async function(contact_form) {
+  const sql = 'INSERT INTO contact (full_name, email, contact_subject, message) VALUES (?, ?, ?, ?)';
+  const values = [contact_form.name,  contact_form.email, contact_form.subject, contact_form.message];
+  const [result] = await pool.execute(sql, values);
+  return result;
+};
+
 User.findByEmail = async function(email) {
   const sql = 'SELECT * FROM login_info WHERE email = ?';
   const [rows] = await pool.execute(sql, [email]);
