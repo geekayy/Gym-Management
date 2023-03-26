@@ -2,7 +2,7 @@
 
 body {
   padding-top: 100px;
-  background: #282828;
+  background: #222222;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   color: #fff;
@@ -712,7 +712,7 @@ margin: 0;
 }
 #business-stats {
   padding: 100px 0 70px;
-  background: #222222;
+  background: #282828;
   background-size: cover;
   color: #fff;
   /* background: url('../images/img2.jpg'); */
@@ -938,7 +938,7 @@ padding: 7px 0 0;
   margin-bottom: 20px;
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=number], input[type=phone]{
   width: 100%;
   margin: 10px 0;
   border-radius: 5px;

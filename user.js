@@ -21,4 +21,10 @@ User.findByEmail = async function(email) {
   return rows[0];
 };
 
+User.getDetails = async function(email){
+  const sql = 'SELECT * FROM members WHERE email = ?';
+  const [rows] = await pool.execute(sql, [email]);
+  return rows[0];
+}
+
 module.exports = User;

@@ -10,8 +10,7 @@ async function signin(req, res){
         res.statusMessage = "Invalid Email"
         res.status(401).end()
     } else {
-        
-        if (password === user.pass) {
+        if (password === user.password) {
             const token = jwt.sign({ userEmail: user.email }, 'secret');
             res.cookie('token', token, { httpOnly: true });
             res.status(200).json({ message: 'Logged in', token: token });

@@ -34,11 +34,12 @@
                     <ul class="nav navbar-nav">
                         <li class="scroll"><a href="home.html">Home</a></li>  
                         <li class="scroll"><a href="classes.html">Classes</a></li>
-                        <li class="scroll"><a href="about.html">About</a></li>  
-						<li class="scroll"><a href="gallery.html">Gallery</a></li>
+                        <li class="scroll"><a href="about.html">About</a></li>
                         <li class="scroll"><a href="pricing.html">Pricing</a></li>
                         <li class="scroll active"><a href="contact.html">Contact</a></li>
-                        <li class="scroll"><a href="login.html">Login/Sign Up</a></li>                            
+                        <li class="scroll" id="nav_login"><a href="login.html">Login/Sign Up</a></li>                                              
+                        <li class="scroll" id="nav_dashboard" style="display: none;"><a href="dashboard.html">Dashboard</a></li>                        
+                        <li class="scroll" id="nav_logout" style="display: none;"><a onclick="logout()">Logout</a></li>                            
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -124,5 +125,19 @@
     <script src="../static/js/jquery.inview.min.js"></script>
     <script src="../static/js/wow.min.js"></script>
     <script src="../static/js/custom-scripts.js"></script>
+    <script>
+        if(document.cookie.indexOf(`token=`) !== -1){
+            document.getElementById("nav_logout").style.display = "block"
+            document.getElementById("nav_dashboard").style.display = "block"
+            document.getElementById("nav_login").style.display = "none"
+        }
+
+
+        function logout(){
+            document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            document.cookie = `email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            window.location.href = "/main/home.html"
+        }
+    </script>
 </body>
 </html>

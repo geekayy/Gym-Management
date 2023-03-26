@@ -17,7 +17,14 @@
     <![endif]-->       
     <link rel="shortcut icon" href="../static/images/ico/favicon.ico"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-
+<style>
+    li{
+        color:#39ff14;
+    }
+    li span{
+        color:white;
+    }
+</style>
 </head> 
 
 <body id="nav">
@@ -42,6 +49,7 @@
 						<li class="scroll"><a href="gallery.html">Gallery</a></li>
                         <li class="scroll"><a href="pricing.html">Pricing</a></li>
                         <li class="scroll"><a href="contact.html">Contact</a></li>
+                        <li class="scroll"><a onclick="logout()">Logout</a></li>
                         <li class="scroll active"><a href="dashboard.html">Dashboard</a></li>                        
                     </ul>
                 </div>
@@ -63,17 +71,37 @@
     </section>
 <div class="user-details">
     <ul>
-        <li id="username"><strong>Name:</strong> John Doe</li>
-        <li id="email"><strong>Email:</strong> john.doe@example.com</li>
-        <li id="phone"><strong>Phone:</strong> 555-1234</li>
-        <li id="address"><strong>Address:</strong> 123 Main St, Anytown, USA</li>
+        <li><span><strong>First Name:</strong> <span id="first_name"></span></span></li>
+        <li><span><strong>Last Name:</strong> <span id="last_name"></span></span></li>
+        <li><span><strong>Email:</strong> <span id="email"></span></span></li>
+        <li><span><strong>Phone:</strong> <span id="phone"></span></span></li>
+        <li><span><strong>Membership Status:</strong> <span id="membership_status"></span></span></li>
+        <li><span><strong>Trainer:</strong> <span id="trainer_name"></span></span></li>
+        <li><span><strong>Joining Date:</strong> <span id="join_date"></span></span></li>
       </ul>
 </div>
     
-<div style="width:70%">
-    <canvas id="myChart"></canvas>
-
+<div style="display: flex;justify-content: center;">
+    <div style="width: 70%;">
+        <canvas id="myChart"></canvas>
+    </div>
 </div>
+
+<h1>BMI Calculator</h1>
+<form onsubmit="calculateBMI(); return false;">
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" name="weight" placeholder="Enter your weight" required>
+
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height" name="height" placeholder="Enter your height" required>
+
+    <input type="submit" value="Calculate BMI">
+</form>
+  <div id="bmi-container">
+    <p class="bmi-label">YOUR BMI: <span id="bmi-result">
+    <p id="bmi"></p>
+    <div id="graph"></div>
+  </div>
 
 <footer id="footer">
     <div class="container">
@@ -103,31 +131,105 @@
 <script src="../static/js/wow.min.js"></script>
 <script src="../static/js/custom-scripts.js"></script>
 <script>
-    const data = {
-      labels: ['Value 1', 'Value 2'],
-      datasets: [{
-        data: [25, 75],
-        backgroundColor: ['red', 'blue']
-      }]
-    };
-
-    const options = {
-      legend: {
-        position: 'right',
-        labels: {
-          fontSize: 16
+    const user_email = document.cookie.match(`(^|;)\\s*email\\s*=\\s*([^;]+)`);
+    const email = user_email ? user_email.pop() : "";
+    url = "http://localhost:8000"
+    fetch(url+'/dashboard', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'email': email
         }
-      }
-    };
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        }
+        return response.json();
+    })
+    .then(data => {
+        const user_details = data.details
+        document.getElementById("first_name").innerHTML = user_details.first_name
+        document.getElementById("last_name").innerHTML = user_details.last_name
+        document.getElementById("email").innerHTML = user_details.email
+        document.getElementById("phone").innerHTML = user_details.phone_number
+        document.getElementById("membership_status").innerHTML = user_details.membership_status
+        document.getElementById("trainer_name").innerHTML = user_details.trainer_name
+        document.getElementById("join_date").innerHTML = user_details.join_date_formatted
+        
+        const num_days_missed = user_details.num_days_missed
+        const join_date_object = new Date(user_details.join_date)
+        const current_date_object = new Date()
+        const diffInMilliseconds = current_date_object - join_date_object;
+        const days_since_joined =  Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
 
-    var myChart = new Chart(
-      document.getElementById('myChart'),
-      {
-        type: 'pie',
-        data: data,
-        options: options
+        const pie_data = {
+            labels: ['No. of days missed', 'No. of days attended'],
+            datasets: [{
+                data: [num_days_missed, days_since_joined - num_days_missed],
+                backgroundColor: ['red', 'blue']
+            }]
+        };
+
+        const options = {
+        legend: {
+            position: 'right',
+            align: 'center',
+            labels: {
+            fontSize: 16
+            }
+        }
+        };
+
+        var myChart = new Chart(
+        document.getElementById('myChart'),
+        {
+            type: 'pie',
+            data: pie_data,
+            options: options
+        }
+        );
+        
+    })
+    .catch(error => {
+        alert(error)
+    });
+</script>
+<script>
+    
+    function calculateBMI() {
+      // Get user input
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+
+      // Convert height from cm to m
+      height = height / 100;
+
+      // Calculate BMI
+      var bmi = weight / (height * height);
+
+      // Display result
+      document.getElementById("bmi").innerHTML = bmi.toFixed(2);
+
+      // Update graphical representation
+      var graph = document.getElementById("graph");
+      if (bmi < 18.5) {
+        graph.innerHTML = "<span class='underweight'>UNDERWEIGHT</span>";
+      } else if (bmi >= 18.5 && bmi <= 24.9) {
+        graph.innerHTML = "<span class='normal'>NORMAL</span>";
+      } else if (bmi >= 25 && bmi <= 29.9) {
+        graph.innerHTML = "<span class='overweight'>OVERWEIGHT</span>";
+      } else {
+        graph.innerHTML = "<span class='obese'>OBESE</span>";
       }
-    );
-  </script>
+    }
+
+    function logout(){
+        document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        document.cookie = `email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        window.location.href = "/main/home.html"
+    }
+
+</script>
 </body>
 </html>

@@ -38,7 +38,7 @@
 						<li class="scroll"><a href="gallery.html">Gallery</a></li>
                         <li class="scroll"><a href="pricing.html">Pricing</a></li>
                         <li class="scroll"><a href="contact.html">Contact</a></li>
-                        <li class="scroll active"><a href="login.html">Login/Sign Up</a></li>                           
+                        <li class="scroll active"><a href="login.html">Login/Sign Up</a></li>                      
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -136,7 +136,14 @@
                 }
                 return response.json();
             })
-            .then(data => console.log(data))
+            .then(data => {
+                // set cookie
+                const token = data.token
+                document.cookie = `token=${token}; path=/; expires=${new Date(new Date().getTime() + 24 * 60 * 60 * 1000)};`
+                document.cookie = `email=${email}; path=/; expires=${new Date(new Date().getTime() + 24 * 60 * 60 * 1000)};`
+                //redirect to dashboard
+                window.location.href = "/main/dashboard.html"
+            })
             .catch(error => {
                 alert(error)
             });
