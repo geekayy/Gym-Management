@@ -81,11 +81,12 @@ text-align:center;
   border-radius: 0;
 }
 .btn.btn-primary {
-  background: #282828;
+  background-color: #282828;
 }
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-  background: #00ff00;
+  outline: none;
+color:#00ff00;
 }
 .listarrow{
 padding:0px;
@@ -808,7 +809,7 @@ color: #FFFFFF;
 #pricing ul.pricing.featured li.plan-header .plan-name {
   color: #FFFFFF;
 }
-#contact-us {
+#contact-us, #user_details {
   padding: 100px 0 10px;
 }
 #contact-us h1,
@@ -846,13 +847,15 @@ width: 100px;
 ********* Footer ******
 ************************/
 #footer {
+  
   padding-top: 30px;
   padding-bottom: 30px;
   color: #fff;
-  background: #222222;
+  background: #282828;
 }
 #footer a {
   color: #fff;
+ 
 }
 #footer a:hover {
   color: #39ff14;
@@ -861,17 +864,22 @@ width: 100px;
   list-style: none;
   padding: 0;
   margin: 0 -7.5px;
+  text-align: center;
+  
 }
 #footer ul > li {
  display: inline-block; 
-
 padding: 3px 0;
 width: 31px;
-text-align: center;
+
+
 }
 @media only screen and (min-width: 768px) {
   #footer .social-icons {
-    float: right;
+  float: right;
+   text-align: right;
+   margin-right: -80px;
+    
   }
 }
 @media only screen and (max-width:768px){
@@ -958,7 +966,7 @@ button {
 }
 
 button:hover {
-  opacity: 0.6;
+  opacity: 1;
   cursor: pointer;
 }
 

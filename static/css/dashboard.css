@@ -1,4 +1,5 @@
 h1 {
+    font-size: 45px;
     text-align: center;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -14,6 +15,7 @@ h1 {
     width: 200px;
     text-align: center;
     font-size: 14px;
+    
   }
   input[type="number"] {
     padding: 5px;
@@ -27,14 +29,14 @@ h1 {
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 13px;
     margin-bottom: 20px;
   }
   p.bmi-label {
     font-size: 40px; 
     text-decoration: underline;
     text-decoration-color: #39ff14;
-    margin-top: 30px;
+    margin-top: 10px;
   }
   #bmi-container {
     text-align: center;
@@ -49,6 +51,7 @@ h1 {
     font-size: 30px;
     display: inline-block;
     margin-top: 0;
+    margin-bottom: 20px;
   }
   .underweight {
     color: #F44336;
@@ -62,3 +65,10 @@ h1 {
   .obese {
     color: #F44336;
   }
+
+  #pie_chart{
+    background: #282828;
+    padding: 20px;
+  }
+
+  
