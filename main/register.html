@@ -151,7 +151,7 @@
                 }
                 return response.json();
             })
-            .then(data => alert(data))
+            .then(data => {console.log("Registration successful!"); window.location.href="/main/login.html"})
             .catch(error => {
                 alert(error)
             });
