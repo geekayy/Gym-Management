@@ -78,6 +78,7 @@
             <li><span><strong>Membership Status:</strong> <span id="membership_status"></span></span></li>
             <li><span><strong>Trainer:</strong> <span id="trainer_name"></span></span></li>
             <li><span><strong>Joining Date:</strong> <span id="join_date"></span></span></li>
+            <li><span><strong>Current Plan:</strong> <span id="current_plan"></span></span></li>
         </ul>
     </div>
 </section>
@@ -163,6 +164,7 @@
         document.getElementById("membership_status").innerHTML = user_details.membership_status
         document.getElementById("trainer_name").innerHTML = user_details.trainer_name
         document.getElementById("join_date").innerHTML = user_details.join_date_formatted
+        document.getElementById("current_plan").innerHTML = user_details.current_plan
         
         const num_days_missed = user_details.num_days_missed
         const join_date_object = new Date(user_details.join_date)
