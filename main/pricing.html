@@ -80,7 +80,7 @@
                             <li>Crossfit</li>
                             <li> Strength Training</li>
                             <li> -</li>
-                            <li class="plan-purchase"><a class="btn btn-primary" href="#">Book a free trial!</a></li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="#" onclick="bookTrial('basic')">Book a free trial!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                             <li>Crossfit</li>
                             <li> Strength Training</li>
                             <li> -</li>
-                            <li class="plan-purchase"><a class="btn btn-primary" href="#">Book a free trial!</a></li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="#" onclick="bookTrial('bronze')">Book a free trial!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                             <li>Crossfit</li>
                             <li> Strength Training</li>
                             <li> -</li>
-                            <li class="plan-purchase"><a class="btn btn-primary" href="#">Book a free trial!</a></li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="#" onclick="bookTrial('silver')">Book a free trial!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
                             <li>Crossfit</li>
                             <li> Strength Training</li>
                             <li> Private Lessons</li>
-                            <li class="plan-purchase"><a class="btn btn-primary" href="#">Book a free trial!</a></li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="#" onclick="bookTrial('gold')">Book a free trial!</a></li>
                         </ul>
                     </div>
                 </div>
@@ -215,6 +215,42 @@
             document.cookie = `token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
             document.cookie = `email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
             window.location.href = "/main/home.html"
+        }
+
+        function bookTrial(plan_type){
+            console.log(plan_type)
+
+            // Check is loggedIn
+            if(document.cookie.indexOf(`token=`) !== -1){
+                const user_email = document.cookie.match(`(^|;)\\s*email\\s*=\\s*([^;]+)`);
+                const email = user_email ? user_email.pop() : "";
+                url = "http://localhost:8000"
+                fetch(url+'/plan_query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        plan_type
+                    })
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText)
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Plan query sent");
+                })
+                .catch(error => {
+                    alert(error)
+                });
+            }
+            else{
+                window.location.href = "/main/login.html"
+            }
         }
     </script>
 </body>
