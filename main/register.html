@@ -56,7 +56,7 @@
         <div class="mainContainer">
             <!-- Username -->
             <label for="email">Your Email</label>
-            <input type="text" placeholder="Enter Username" name="email" id="email" required>
+            <input type="email" placeholder="Enter Username" name="email" id="email" required>
 
             <br><br>
 
@@ -67,17 +67,17 @@
             <!-- First name  -->
 
             <label for="first_name">First Name</label>
-            <input type="text" placeholder="Enter first name" name="first_name" id="first_name" required>
+            <input type="text" placeholder="Enter first name" name="first_name" id="first_name" pattern="[a-zA-Z]+" title="Only alphabets allowed" required>
 
             <!-- last name  -->        
             <label for="last name">Last Name</label>
-            <input type="text" placeholder="Enter last name" name="last_name" id="last_name" required>
+            <input type="text" placeholder="Enter last name" name="last_name" id="last_name" pattern="[a-zA-Z]+" title="Only alphabets allowed" required>
 
 
             <!-- phone  -->
 
             <label for="phone">Phone</label>
-            <input type="phone" placeholder="Enter your Phone no." name="phone" id="phone_no" required>
+            <input type="phone" placeholder="Enter your Phone no." name="phone" id="phone_no" pattern="[0-9()+ -]{1,20}" title="Only numbers allowed" required>
 
             <!-- sub container for the checkbox and forgot password link -->
             
