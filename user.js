@@ -22,6 +22,13 @@ User.create_contact_details = async function(contact_form) {
   return result;
 };
 
+User.send_plan_query = async function(plan_query){
+  const sql = 'INSERT INTO book_trial (email, first_name, last_name, phone_number, plan_query) VALUES (?, ?, ?, ?, ?)';
+  const values = [plan_query.email,  plan_query.first_name, plan_query.last_name, plan_query.phone, plan_query.plan_type];
+  const [result] = await pool.execute(sql, values);
+  return result;
+}
+
 User.findByEmail = async function(email) {
   const sql = 'SELECT * FROM login_info WHERE email = ?';
   const [rows] = await pool.execute(sql, [email]);
